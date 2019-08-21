@@ -1,0 +1,57 @@
+{
+    "fields": [
+        {
+            "name": "product_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "meal_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "user_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "product_id",
+            "references": "id",
+            "on": "product",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "meal_id",
+            "references": "id",
+            "on": "meal",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "user_id",
+            "references": "id",
+            "on": "user",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "order_row",
+            "type": "belongsTo",
+            "class": "App\\Meal"
+        }
+    ],
+    "validations": [
+        {
+            "field": "product_id",
+            "rules": "required"
+        },
+        {
+            "field": "meal_id",
+            "rules": "required"
+        },
+        {
+            "field": "user_id",
+            "rules": "required"
+        }
+    ]
+}

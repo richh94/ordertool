@@ -1,0 +1,49 @@
+{
+    "fields": [
+        {
+            "name": "restaurant_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "date",
+            "type": "datetime"
+        },
+        {
+            "name": "is_open",
+            "type": "select",
+            "options": {
+                "0": "No",
+                "1": "Yes"
+            }
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "restaurant_id",
+            "references": "id",
+            "on": "restaurant",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "meal",
+            "type": "belongsTo",
+            "class": "App\\Restaurant"
+        }
+    ],
+    "validations": [
+        {
+            "field": "restaurant_id",
+            "rules": "required"
+        },
+        {
+            "field": "date",
+            "rules": "required"
+        },
+        {
+            "field": "is_open",
+            "rules": "required"
+        }
+    ]
+}

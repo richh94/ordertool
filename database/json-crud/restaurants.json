@@ -1,0 +1,22 @@
+{
+    "fields": [
+        {
+            "name": "id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "name",
+            "type": "text"
+        }
+    ],
+    "foreign_keys": [
+    ],
+    "relationships": [
+    ],
+    "validations": [
+        {
+            "field": "name",
+            "rules": "required|max:64"
+        }
+    ]
+}

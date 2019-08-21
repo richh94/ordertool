@@ -1,0 +1,57 @@
+{
+    "fields": [
+        {
+            "name": "product_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "name",
+            "type": "text"
+        },
+        {
+            "name": "required",
+            "type": "select",
+            "options": {
+                "false": "No",
+                "true": "Yes"
+            }
+        },
+        {
+            "name": "can_select_multiple",
+            "type": "select",
+            "options": {
+                "false": "No",
+                "true": "Yes"
+            }
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "product_id",
+            "references": "id",
+            "on": "products",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "product",
+            "type": "belongsTo",
+            "class": "App\\Product"
+        }
+    ],
+    "validations": [
+        {
+            "field": "name",
+            "rules": "required|max:64"
+        },
+        {
+            "field": "required",
+            "rules": "required"
+        },
+        {
+            "field": "can_select_multiple",
+            "rules": "required"
+        }
+    ]
+}

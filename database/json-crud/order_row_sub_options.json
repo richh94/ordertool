@@ -1,0 +1,47 @@
+{
+    "fields": [
+        {
+            "name": "meal_order_row_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "product_sub_option_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "meal_order_row_id",
+            "references": "id",
+            "on": "meal_order_rows",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "product_sub_option_id",
+            "references": "id",
+            "on": "product_sub_options",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "order_row_sub_option",
+            "type": "belongsTo",
+            "class": "App\\MealOrderRow"
+        }
+    ],
+    "validations": [
+        {
+            "field": "product_sub_option_id",
+            "rules": "required"
+        },
+        {
+            "field": "product_sub_option_id",
+            "rules": "required"
+        },
+        {
+            "field": "user_id",
+            "rules": "required"
+        }
+    ]
+}
